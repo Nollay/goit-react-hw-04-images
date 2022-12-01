@@ -13,7 +13,7 @@ export function App() {
   const [images, setImages] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
-  const [loadMoreButton, setShowLoadMoreButton] = useState(false);
+  const [loadMoreButton, setLoadMoreButton] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -95,9 +95,9 @@ export function App() {
           setImages(prev => [...prev, ...response.hits]);
 
           if (page === response.total / 12 || response.hits < 12) {
-            setShowLoadMoreButton(false);
+            setLoadMoreButton(false);
           } else {
-            setShowLoadMoreButton(true);
+            setLoadMoreButton(true);
           }
         })
         .catch(error => {
